@@ -3,7 +3,7 @@ var webpack = require("webpack");
 module.exports = {
     entry: [
         //"bootstrap-loader/extractStyles",
-        './src/app.tsx'
+        './src/main.ts'
     ],
     // Turn on sourcemaps
     devtool: 'source-map',
