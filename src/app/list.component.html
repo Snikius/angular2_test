@@ -1,22 +1,27 @@
-<ul>
-    <li *ngFor="let employee of list">
-        <table class="table">
-            <tr>
-                <th>First name</th>
-                <td>{{employee.firstName}}</td>
-            </tr>
-            <tr>
-                <th>Last name</th>
-                <td>{{employee.lastName}}</td>
-            </tr>
-            <tr>
-                <th>Age</th>
-                <td>{{employee.age}}</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{employee.address}}</td>
-            </tr>
-        </table>
-    </li>
-</ul>
+<div *ngFor="let employee of list">
+    <div class="row">
+        <div class="col-xs-3">
+            <table class="table table-bordered">
+                <tr>
+                    <th>First name</th>
+                    <td>{{ employee.firstName }}</td>
+                </tr>
+                <tr>
+                    <th>Last name</th>
+                    <td>{{ employee.lastName }}</td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>{{ employee.age }}</td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>{{ employee.address }}</td>
+                </tr>
+            </table>
+         </div>
+        <div class="col-xs-9">
+            <a (click)="delete(employee.id)" class="col-xs-6 pull-left glyphicon glyphicon-remove-circle" style="color: red; cursor: pointer; text-decoration: none"></a>
+        </div>
+    </div>
+</div>

@@ -1,10 +1,13 @@
 
 class Employee
 {
-    firstName:string;
-    lastName:string;
-    age: number;
-    address: string;
+    constructor(
+        public firstName: string,
+        public lastName: string,
+        public address: string,
+        public age: number,
+        public id?: number
+    ) {  }
 }
 
-export default Employee
+export default Employee;

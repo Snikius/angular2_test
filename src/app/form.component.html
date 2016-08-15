@@ -1,6 +1,10 @@
 <div class="container">
     <h1>Employee Form</h1>
-    <form *ngIf="active" (ngSubmit)="onSubmit()" #employeeForm="ngForm">
+    <div *ngIf="submitted" class="alert alert-success">
+        Employee added.
+        <a style="cursor: pointer" (click)="submitted = false">More</a>
+    </div>
+    <form *ngIf="active && !submitted" (ngSubmit)="onSubmit()" #employeeForm="ngForm">
         <div class="form-group">
             <label for="firstName">First Name</label>
             <input type="text" class="form-control" id="firstName" required
@@ -24,8 +28,7 @@
             </div>
         </div>
         <div class="form-group">
-
-            <label for="age">Age {{ log(age) }}</label>
+            <label for="age">Age</label>
             <input type="text" class="form-control" id="age"
                    required
                    pattern="[\d]+"

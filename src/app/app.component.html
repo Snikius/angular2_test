@@ -1,7 +1,10 @@
-<h1>Employee list</h1>
-<div>
-    <list></list>
-</div>
-<div>
-    <a style="cursor: pointer" (click)="openForm()">Add</a>
+<div class="container">
+    <h1>Employee list</h1>
+    <div>
+        <list [empService]="service"></list>
+    </div>
+    <div>
+        <button (click)="openForm()" class='btn btn-default'>Add</button>
+        <button *ngIf="showClear" (click)="clear()" class='btn btn-danger'>Clear</button>
+    </div>
 </div>

@@ -1,26 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+//import { ViewChild } from '@angular/forms';
+import {EmployeeService} from "../services/employee.service";
 import Employee from "../models/employee.model";
-import { Validators, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
     selector: 'employee-form',
-    templateUrl: 'src/app/form.component.html'
+    templateUrl: 'src/app/form.component.html',
+    providers: [EmployeeService],
 })
 export default class FormComponent {
-    employeeForm: FormGroup;
-    constructor() { }
-    model = new Employee();
+    constructor(private service: EmployeeService) { }
+    @ViewChild('employeeForm') form;
+
+    model = new Employee('', '', '', null);
     active = true;
     submitted = false;
+    
     onSubmit() {
         this.submitted = true;
-    }
-    
-    log(x) {
-        console.log(x);
+        // Добавляем в список через сервис
+        this.service.add(this.model);
+        // Очищаем форму
+        this.model = new Employee('', '', '', null);
     }
 }
-
-//street: ['', Validators.minLength(3)],
-//    city: ['', Validators.maxLength(10)],
-//    zip: ['', Validators.pattern('[A-Za-z]{5}')]
