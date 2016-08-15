@@ -1,14 +1,15 @@
 var webpack = require("webpack");
 
 module.exports = {
-    entry: [
+    entry: {
         //"bootstrap-loader/extractStyles",
-        './src/main.ts'
-    ],
+        main: "./src/main.ts",
+        form: "./src/form.ts"
+    },
     // Turn on sourcemaps
     devtool: 'source-map',
     output: {
-        filename: 'app.js',
+        filename: '[name].app.js',
         path: __dirname + "/build",
         publicPath: "/build/"
     },
