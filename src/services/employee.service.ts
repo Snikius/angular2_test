@@ -9,11 +9,16 @@ export class EmployeeService
 
     constructor() {
         this.onChange = [];
+        // Событие о изменении local storage барузера
         window.addEventListener('storage', () => {
             this.notify(this.list);
         }, false);
     }
 
+    /**
+     * Оповестить подписчиков о изменении в хранилище
+     * @param list
+     */
     private notify(list: Employee[]) {
         for(let cb of this.onChange) {
             cb(list);
@@ -32,7 +37,7 @@ export class EmployeeService
             list = JSON.parse(listJson);
         }
         // Добавляем id элементу
-        e.id = list.length;
+        e.id = list.length + 1;
         // Добавляем нового
         list.push(e);
         // Сохраняем в хранилище
